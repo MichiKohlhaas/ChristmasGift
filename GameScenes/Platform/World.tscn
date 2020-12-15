@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=2]
 
 [node name="World" type="Node"]
 
@@ -12,78 +9,15 @@ extents = Vector2( 32, 32 )
 position = Vector2( 40, 208.173 )
 
 [node name="Sprite" parent="Player" index="0"]
-frame = 0
+frame = 2
 
-[node name="Ground6" type="Node" parent="."]
-
-[node name="Ground" type="StaticBody2D" parent="Ground6"]
-position = Vector2( 32, 288 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 917503, 0, 0, 983039, 0, 0, 1048575, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
-
-[node name="Sprite" type="Sprite" parent="Ground6/Ground"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
-region_rect = Rect2( 336, 16, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6/Ground"]
-shape = SubResource( 1 )
-
-[node name="Ground2" type="StaticBody2D" parent="Ground6"]
-position = Vector2( 96, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ground6/Ground2"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
-region_rect = Rect2( 336, 16, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6/Ground2"]
-shape = SubResource( 1 )
-
-[node name="Ground3" type="StaticBody2D" parent="Ground6"]
-position = Vector2( 160, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ground6/Ground3"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
-region_rect = Rect2( 336, 16, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6/Ground3"]
-shape = SubResource( 1 )
-
-[node name="Ground4" type="StaticBody2D" parent="Ground6"]
-position = Vector2( 224, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ground6/Ground4"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
-region_rect = Rect2( 336, 16, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6/Ground4"]
-shape = SubResource( 1 )
-
-[node name="Ground5" type="StaticBody2D" parent="Ground6"]
-position = Vector2( 288, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ground6/Ground5"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
-region_rect = Rect2( 336, 16, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6/Ground5"]
-shape = SubResource( 1 )
 
 [editable path="Player"]

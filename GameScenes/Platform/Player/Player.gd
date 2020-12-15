@@ -1,16 +1,17 @@
 extends KinematicBody2D
 
 export var ACCELERATION = 500
-export var MAX_SPEED = 90
-export var ROLL_SPEED = 120
+export var MAX_SPEED = 200
 export var FRICTION = 500
 
 const UP = Vector2(0, -1)
+const GRAVITY = 20
+const JUMP_HEIGHT = -500
 
 var velocity = Vector2.ZERO
 
 func _process(delta):
-	velocity.y += 10
+	velocity.y += GRAVITY
 	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -31,7 +32,7 @@ func _process(delta):
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = -400
-			$Sprite.play("jump")
+			velocity.y = JUMP_HEIGHT
+#			$Sprite.play("jump")
 	
 	velocity = move_and_slide(velocity, UP)
