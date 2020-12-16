@@ -21,12 +21,16 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector = input_vector.normalized()
 	
+	if input_vector.x < 0:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
+	
 	if input_vector != Vector2.ZERO and !isJumping:
-		if input_vector.x < 0:
-			$Sprite.flip_h = true
-			$Sprite.play("run")
+		if Input.is_action_pressed("walk"):
+			$Sprite.play("walking")
+			velocity.x = lerp(velocity.x, 0, 0.2)
 		else:
-			$Sprite.flip_h = false
 			$Sprite.play("run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
