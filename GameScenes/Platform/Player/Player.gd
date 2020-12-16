@@ -18,9 +18,11 @@ func _physics_process(delta):
 	velocity.y += GRAVITY
 	var isFriction = false
 	var input_vector = Vector2.ZERO
+	# TODO: Fix so that the character can "move" while jumping.
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector = input_vector.normalized()
 	
+#	not the best because the character flips back after jumping unless the player holds the left
 	if input_vector.x < 0:
 		$Sprite.flip_h = true
 	else:
@@ -29,6 +31,7 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO and !isJumping:
 		if Input.is_action_pressed("walk"):
 			$Sprite.play("walking")
+#			slow down the velocity to a walking speed
 			velocity.x = lerp(velocity.x, 0, 0.2)
 		else:
 			$Sprite.play("run")
@@ -50,7 +53,9 @@ func _physics_process(delta):
 			$Sprite.play("jump")
 			isJumping = true
 		else:
+			$Sprite.set_animation("jump")
 			$Sprite.set_frame(3)
+			isJumping = true
 		if isFriction:
 			velocity.x = lerp(velocity.x, 0, 0.05)
 	

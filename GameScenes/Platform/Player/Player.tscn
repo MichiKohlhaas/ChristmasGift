@@ -97,7 +97,6 @@ animations = [ {
 height = 30.9591
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 20, 200 )
 script = ExtResource( 54 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
