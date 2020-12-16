@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://GameScenes/Platform/BG/BG_1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://GameScenes/Platform/WorldChange.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/background/transition_to_black.png" type="Texture" id=4]
 [ext_resource path="res://GameScenes/Platform/BG/BackGroundTiles.tres" type="TileSet" id=5]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/control-box-3.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/monitorface/monitor-face-4.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banners.png" type="Texture" id=8]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/antenna.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-arrow.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-open.png" type="Texture" id=11]
+[ext_resource path="res://GameScenes/Platform/WorldChange.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node"]
 
@@ -22,15 +29,19 @@ __meta__ = {
 position = Vector2( 32, 176 )
 z_index = 1
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="BG" parent="." instance=ExtResource( 3 )]
 
-[node name="TextureRect" parent="Node2D" index="1"]
-margin_right = 1024.0
+[node name="TextureRect" parent="BG" index="1"]
+margin_right = 872.0
 
-[node name="TextureRect2" parent="Node2D" index="2"]
-margin_right = 1024.0
+[node name="TextureRect2" parent="BG" index="2"]
+margin_right = 872.0
 
-[node name="WorldChange" parent="." instance=ExtResource( 4 )]
+[node name="TextureRect3" parent="BG" index="3"]
+margin_right = 872.0
+stretch_mode = 2
+
+[node name="WorldChange" parent="." instance=ExtResource( 12 )]
 position = Vector2( 440, 176 )
 target_scene = "res://GameScenes/Platform/World2.tscn"
 
@@ -38,8 +49,39 @@ target_scene = "res://GameScenes/Platform/World2.tscn"
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 655378, 3, 0, 655380, 1, 0, 655383, 6, 0, 917522, 3, 0, 917524, 5, 0, 917527, 6, 0, 1179666, 3, 0, 1179668, 11, 0, 1179671, 6, 0 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="antenna" type="Sprite" parent="Node"]
+position = Vector2( 88, 304 )
+texture = ExtResource( 9 )
+
+[node name="banner-arrow" type="Sprite" parent="Node"]
+position = Vector2( 576, 320 )
+texture = ExtResource( 10 )
+
+[node name="banner-open" type="Sprite" parent="Node"]
+position = Vector2( 304, 296 )
+texture = ExtResource( 11 )
+
+[node name="control-box-3" type="Sprite" parent="Node"]
+position = Vector2( 192, 337 )
+texture = ExtResource( 6 )
+
+[node name="banners" type="Sprite" parent="Node"]
+position = Vector2( 680, 296 )
+texture = ExtResource( 8 )
+
+[node name="monitor-face-4" type="Sprite" parent="Node"]
+position = Vector2( 584, 288 )
+texture = ExtResource( 7 )
+
+[node name="transition_to_black" type="Sprite" parent="Node"]
+position = Vector2( 436, 311.5 )
+scale = Vector2( 6.8125, 0.404167 )
+z_index = -1
+texture = ExtResource( 4 )
 
 [editable path="Player"]
 
-[editable path="Node2D"]
+[editable path="BG"]

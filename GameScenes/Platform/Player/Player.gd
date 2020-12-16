@@ -22,10 +22,9 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector = input_vector.normalized()
 	
-#	not the best because the character flips back after jumping unless the player holds the left
 	if input_vector.x < 0:
 		$Sprite.flip_h = true
-	else:
+	elif input_vector.x > 0:
 		$Sprite.flip_h = false
 	
 	if input_vector != Vector2.ZERO and !isJumping:
