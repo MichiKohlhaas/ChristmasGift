@@ -50,33 +50,33 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="Node" type="Node" parent="."]
+[node name="UmweltElements" type="Node" parent="."]
 
-[node name="antenna" type="Sprite" parent="Node"]
+[node name="antenna" type="Sprite" parent="UmweltElements"]
 position = Vector2( 88, 304 )
 texture = ExtResource( 9 )
 
-[node name="banner-arrow" type="Sprite" parent="Node"]
+[node name="banner-arrow" type="Sprite" parent="UmweltElements"]
 position = Vector2( 576, 320 )
 texture = ExtResource( 10 )
 
-[node name="banner-open" type="Sprite" parent="Node"]
+[node name="banner-open" type="Sprite" parent="UmweltElements"]
 position = Vector2( 304, 296 )
 texture = ExtResource( 11 )
 
-[node name="control-box-3" type="Sprite" parent="Node"]
+[node name="control-box-3" type="Sprite" parent="UmweltElements"]
 position = Vector2( 192, 337 )
 texture = ExtResource( 6 )
 
-[node name="banners" type="Sprite" parent="Node"]
+[node name="banners" type="Sprite" parent="UmweltElements"]
 position = Vector2( 680, 296 )
 texture = ExtResource( 8 )
 
-[node name="monitor-face-4" type="Sprite" parent="Node"]
+[node name="monitor-face-4" type="Sprite" parent="UmweltElements"]
 position = Vector2( 584, 288 )
 texture = ExtResource( 7 )
 
-[node name="transition_to_black" type="Sprite" parent="Node"]
+[node name="transition_to_black" type="Sprite" parent="UmweltElements"]
 position = Vector2( 436, 311.5 )
 scale = Vector2( 6.8125, 0.404167 )
 z_index = -1

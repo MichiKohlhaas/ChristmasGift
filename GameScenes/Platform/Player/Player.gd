@@ -8,11 +8,17 @@ export var JUMP_HEIGHT = -500
 
 const UP = Vector2(0, -1)
 
+onready var camera = $Camera2D
+onready var limitLeft = $LeftLimit
+onready var limitBottom = $BottomLeftLimit
+
 var velocity = Vector2.ZERO
 var isJumping = false
 
 func _ready():
-	pass
+	camera.limit_left = limitLeft.position.x
+	camera.limit_top = limitLeft.position.y # Might change in the future, depends on the level height
+	camera.limit_bottom = limitBottom.position.y
 
 func _physics_process(delta):
 	velocity.y += GRAVITY

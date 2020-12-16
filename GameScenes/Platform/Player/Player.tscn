@@ -109,3 +109,11 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.07987, 8.55206 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="LeftLimit" type="Position2D" parent="."]
+
+[node name="BottomLeftLimit" type="Position2D" parent="."]
+position = Vector2( 0, 360 )
