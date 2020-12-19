@@ -44,18 +44,21 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 #
 	face_direction(input_vector)
-	if input_vector != Vector2.ZERO and !isJumping and !isAttacking:
-		if Input.is_action_pressed("walk"):
+	if input_vector != Vector2.ZERO and !isJumping:
+		if Input.is_action_pressed("walk") and !isAttacking:
 			$Sprite.play("walking")
 #			slow down the velocity to a walking speed
 			velocity.x = lerp(velocity.x, 0, 0.25)
 		else:
-			$Sprite.play("run")
+			if isAttacking:
+				$Sprite.play("run_shoot")
+			else:
+				$Sprite.play("run")
 	else:
 		if !isJumping and !isCrouching and !isAttacking:
 			velocity.x = 0
 			$Sprite.play("idle")
-		elif isAttacking:
+		elif isAttacking and !isCrouching:
 			$Sprite.play("shoot")
 	velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 #	# TODO: refactor this, too many if-else statements
