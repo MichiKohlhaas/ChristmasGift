@@ -31,6 +31,9 @@ __meta__ = {
 position = Vector2( 32, 176 )
 z_index = 1
 
+[node name="BottomLeftLimit" parent="Player" index="4"]
+position = Vector2( -35.2741, 192 )
+
 [node name="WorldChange" parent="." instance=ExtResource( 12 )]
 position = Vector2( 440, 176 )
 z_index = 1
@@ -116,5 +119,7 @@ texture = ExtResource( 6 )
 [node name="monitor-face-4" type="Sprite" parent="UmweltElements"]
 position = Vector2( 584, 288 )
 texture = ExtResource( 7 )
+[connection signal="animation_finished" from="Player/Sprite" to="Player" method="_on_Sprite_animation_finished"]
+[connection signal="frame_changed" from="Player/Sprite" to="Player" method="_on_Sprite_frame_changed"]
 
 [editable path="Player"]
