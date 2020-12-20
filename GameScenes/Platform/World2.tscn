@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameScenes/Platform/WorldChange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameScenes/CommonAssets/FutureCity.tscn" type="PackedScene" id=4]
 
 [node name="World2" type="Node"]
 
@@ -20,10 +21,11 @@ position = Vector2( 16, 320 )
 
 [node name="Sprite" parent="Player" index="0"]
 animation = "idle"
-frame = 0
 
 [node name="WorldChange" parent="." instance=ExtResource( 3 )]
 position = Vector2( 664, 320 )
 target_scene = "res://GameScenes/Platform/World.tscn"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [editable path="Player"]

@@ -114,8 +114,7 @@ script = ExtResource( 54 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.225937, 0 )
 frames = SubResource( 1 )
-animation = "jump"
-frame = 3
+animation = "crouch"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -129,3 +128,23 @@ current = true
 
 [node name="BottomLeftLimit" type="Position2D" parent="."]
 position = Vector2( 0, 360 )
+
+[node name="LaserOriginStanding" type="Position2D" parent="." groups=[
+"LaserPosition",
+]]
+position = Vector2( 20.8354, -7.09584 )
+
+[node name="LaserOriginRun" type="Position2D" parent="." groups=[
+"LaserPosition",
+]]
+position = Vector2( 28.707, -3.16455 )
+
+[node name="LaserOriginJump" type="Position2D" parent="." groups=[
+"LaserPosition",
+]]
+position = Vector2( 22.717, -5.764 )
+
+[node name="LaserOriginCrouch" type="Position2D" parent="." groups=[
+"LaserPosition",
+]]
+position = Vector2( 19.5524, 10.8499 )
