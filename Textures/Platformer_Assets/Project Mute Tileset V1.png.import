@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shot-2.png-e7a1914f971b527290c6039a921e5b42.stex"
+path="res://.import/Project Mute Tileset V1.png-a3bb68c46e0d13a55bf9d939048f9896.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/shot/shot-2.png"
-dest_files=[ "res://.import/shot-2.png-e7a1914f971b527290c6039a921e5b42.stex" ]
+source_file="res://Textures/Platformer_Assets/Project Mute Tileset V1.png"
+dest_files=[ "res://.import/Project Mute Tileset V1.png-a3bb68c46e0d13a55bf9d939048f9896.stex" ]
 
 [params]
 
