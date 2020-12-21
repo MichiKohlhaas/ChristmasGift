@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const LASERBOLT = preload("res://GameScenes/CommonAssets/Laserbolt.tscn")
 const UP = Vector2(0, -1)
 
+export (PackedScene) var Laserbolt
 export var ACCELERATION = 500
 export var MAX_SPEED = 200
 export var FRICTION = 500
@@ -24,22 +24,33 @@ func _ready():
 	camera.limit_bottom = limitBottom.position.y
 
 # TODO: refactor
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	var input_vector := Vector2.ZERO
 	velocity.y += GRAVITY
 	if not isCrouching:
 		if Input.is_action_pressed("right"):
 			input_vector.x = 1
 			face_direction(input_vector)
+			if sign($LaserOriginRun.position.x) == -1:
+				$LaserOriginRun.position.x *= -1
+				$LaserOriginCrouch.position.x *= -1
+				$LaserOriginStanding.position.x *= -1
 			if not isJumping:
 				$Sprite.play("run_shoot")
 		elif Input.is_action_pressed("left"):
 			input_vector.x = -1
 			face_direction(input_vector)
+			if sign($LaserOriginRun.position.x) == 1:
+				$LaserOriginRun.position.x *= -1
+				$LaserOriginCrouch.position.x *= -1
+				$LaserOriginStanding.position.x *= -1
 			if not isJumping:
 				$Sprite.play("run_shoot")
 		elif input_vector == Vector2.ZERO and not isJumping:
-			$Sprite.play("idle")
+			if isAttacking:
+				$Sprite.play("shoot")
+			else:
+				$Sprite.play("idle")
 		
 	if not is_on_floor():
 		isJumping = true
@@ -55,7 +66,25 @@ func _physics_process(delta):
 		elif Input.is_action_just_released("crouch"):
 			isCrouching = false
 	
+	if Input.is_action_just_pressed("shoot"):
+		if input_vector == Vector2.ZERO and not isCrouching:
+			laser_point_origin($LaserOriginStanding)
+		elif isCrouching:
+			laser_point_origin($LaserOriginCrouch)
+		else:
+			laser_point_origin($LaserOriginRun)
+		isAttacking = true
+	
 	move(input_vector, delta)
+
+func laser_point_origin(origin: Position2D):
+	var laser_instance = Laserbolt.instance()
+	if sign(origin.position.x) == 1:
+		laser_instance.set_laser_direction(1)
+	elif sign(origin.position.x) == -1:
+		laser_instance.set_laser_direction(-1)
+	get_parent().add_child(laser_instance)
+	laser_instance.position = origin.global_position
 
 #func move_state(delta):
 #	var isFriction = false
@@ -99,7 +128,7 @@ func _physics_process(delta):
 #			velocity.x = lerp(velocity.x, 0, 0.05)
 #	move()
 
-func move(input_vector: Vector2, delta: float):
+func move(input_vector: Vector2, delta: float) -> void:
 	input_vector = input_vector.normalized()
 	velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	velocity = move_and_slide(velocity, UP)
@@ -129,14 +158,15 @@ func move(input_vector: Vector2, delta: float):
 #	state = MOVE
 	
 
-func face_direction(input_vector: Vector2):
+func face_direction(input_vector: Vector2) -> void:
 	if input_vector.x < 0:
 		$Sprite.flip_h = true
 	elif input_vector.x > 0:
 		$Sprite.flip_h = false
 
 func _on_Sprite_animation_finished():
-	pass
+	if $Sprite.animation == "shoot":
+		isAttacking = false
 
 
 func _on_Sprite_frame_changed():
