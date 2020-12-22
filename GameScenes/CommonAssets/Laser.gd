@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var speed = 5
+export (int) var speed = 200
 var velocity = Vector2()
 var direction = 1
 
@@ -8,8 +8,7 @@ func _ready():
 	pass
 	
 func _physics_process(delta) -> void:
-	velocity.x = speed * direction * delta
-	translate(velocity)
+	position += Vector2(direction * speed * delta, 0)
 	$AnimatedSprite.play("default")
 
 func set_laser_direction(dir) -> void:
