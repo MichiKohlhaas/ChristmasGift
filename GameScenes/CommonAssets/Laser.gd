@@ -26,3 +26,6 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 # warning-ignore:unused_argument
 func _on_Laserbolt_body_entered(body) -> void:
 	queue_free()
+
+func _on_Laserbolt_area_entered(area):
+	queue_free()

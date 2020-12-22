@@ -29,9 +29,6 @@ __meta__ = {
 position = Vector2( 32, 176 )
 z_index = 1
 
-[node name="Sprite" parent="Player" index="0"]
-frame = 1
-
 [node name="BottomLeftLimit" parent="Player" index="4"]
 position = Vector2( -35.2741, 192 )
 

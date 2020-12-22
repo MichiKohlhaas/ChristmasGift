@@ -1,5 +1,7 @@
 extends KinematicBody2D
 onready var stats = $Stats
+onready var animation_player = $AnimationPlayer
+onready var hurtbox = $Hurtbox
 var health = 10
 
 # Called when the node enters the scene tree for the first time.
@@ -20,3 +22,12 @@ func _on_Sprite_frame_changed():
 # warning-ignore:unused_argument
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
+	hurtbox.start_invincibility(0.2)
+
+
+func _on_Hurtbox_invincibility_ended():
+	self.animation_player.play("Stop")
+
+
+func _on_Hurtbox_invincibility_started():
+	self.animation_player.play("Start")
