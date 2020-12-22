@@ -70,6 +70,21 @@ animations = [ {
 "name": "shoot",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 55 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "run_shoot",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 46 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "back_jump",
@@ -80,36 +95,22 @@ animations = [ {
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "jump",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 17 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 8 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "walking",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "run_shoot",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 48 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "climb",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 55 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 17 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 8 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 16 ) ],
 "loop": true,
-"name": "crouch",
-"speed": 5.0
+"name": "walking",
+"speed": 16.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 30.9591
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 6
 script = ExtResource( 54 )
 Laserbolt = ExtResource( 57 )
 
