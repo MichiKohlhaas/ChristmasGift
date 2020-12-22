@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GameScenes/Platform/BG/BackGroundTiles.tres" type="TileSet" id=5]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/control-box-3.png" type="Texture" id=6]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/monitorface/monitor-face-4.png" type="Texture" id=7]
+[ext_resource path="res://GameScenes/Platform/Enemy/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/antenna.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-arrow.png" type="Texture" id=10]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-open.png" type="Texture" id=11]
@@ -28,8 +29,14 @@ __meta__ = {
 position = Vector2( 32, 176 )
 z_index = 1
 
+[node name="Sprite" parent="Player" index="0"]
+frame = 1
+
 [node name="BottomLeftLimit" parent="Player" index="4"]
 position = Vector2( -35.2741, 192 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 536, 318 )
 
 [node name="WorldChange" parent="." instance=ExtResource( 12 )]
 position = Vector2( 440, 176 )

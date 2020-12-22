@@ -3,6 +3,7 @@ extends Area2D
 export (int) var speed = 200
 var velocity = Vector2()
 var direction = 1
+var damage = 10
 
 func _ready():
 	pass

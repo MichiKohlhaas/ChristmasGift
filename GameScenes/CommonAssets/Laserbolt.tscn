@@ -31,7 +31,5 @@ shape = SubResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 0.464286, 0 )
 scale = Vector2( 0.703571, 0.55 )
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Laserbolt_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
