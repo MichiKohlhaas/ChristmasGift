@@ -1,19 +1,22 @@
 extends KinematicBody2D
 
 export (PackedScene) var Laserbolt
+export (float) var time_between_shots
 enum {
-	WANDER,
+	PATROL,
 	IDLE,
 	CHASE,
+	ATTACK,
 }
 const SPEED := 30
 const GRAVITY := 10
 
 var health := 10
 var direction := -1 # face left
+var facing := -1
 var isShooting := false
 var velocity := Vector2()
-var state := WANDER
+var state := PATROL
 
 onready var stats = $Stats
 onready var animation_player = $AnimationPlayer
@@ -23,53 +26,79 @@ onready var left_floor_detector = $LeftFloorDetector
 onready var laser_origin = $LaserOrigin
 onready var pdz = $PlayerDetectionZone
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(false)
 	velocity.x = SPEED * direction
 	
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	velocity.y += GRAVITY
-	
-	if is_on_wall():
-		velocity.x *= -1
+	if pdz.can_see_player():
+		state = ATTACK
+	else:
+		state = PATROL
+	# buggy
+#	if is_on_wall():
+#		velocity.x *= -1
+#		scale.x *= -1
 	if not left_floor_detector.is_colliding():
-		velocity.x *= -1
+		flip_positions(true)
 	if not right_floor_detector.is_colliding():
-		velocity.x *= -1
-		
+		flip_positions(false)
+	
+	match state:
+		PATROL:
+			patrol()
+		CHASE:
+			move()
+		ATTACK:
+			if not isShooting:
+				if(position.x > pdz.player.position.x):
+					# player is on the left of enemy
+					if facing == 1:
+						# need to turn and look at player
+						flip_positions(false)
+				else:
+					# player is on the right of enemy
+					print("Player is on right")
+					if facing == -1:
+						flip_positions(true)
+				attack_state()
+				move_to_player()
+
+func patrol() -> void:
 	velocity.y = move_and_slide(velocity, Vector2.UP).y
-#	if direction == 1:
-#		$Sprite.flip_h = true
-#	else:
-#		$Sprite.flip_h = false
-#	if is_on_wall() or not floor_checker.is_colliding() and is_on_floor():
-#		direction *= -1
-#		floor_checker.position.x *= -1
-		
-#	if raycast.is_colliding() and not isShooting:
-#		isShooting = true
-#		var laser_instance = Laserbolt.instance()
-#		laser_instance.speed = 200
-#		if sign(laser_origin.position.x) == 1:
-#			laser_instance.set_laser_direction(1)
-#		elif sign(laser_origin.position.x) == -1:
-#			laser_instance.set_laser_direction(-1)
-#		get_parent().add_child(laser_instance)
-#		laser_instance.position = laser_origin.global_position
-#
-#		$Timer.start(0.8)
-	
-	
-	
+
+func move() -> void:
+	pass
+
+func flip_positions(flip_h: bool) -> void:
+	velocity.x *= self.direction
+	$Sprite.flip_h = flip_h
+	laser_origin.position.x *= self.direction
+	facing *= self.direction
+
+func move_to_player() -> void:
+#	velocity.y = move_and_slide(velocity, Vector2.UP).y
+	pass
+
+func attack_state() ->void:
+	isShooting = true
+	var laser_instance = Laserbolt.instance()
+	laser_instance.speed = 150
+	if sign(laser_origin.position.x) == 1:
+		laser_instance.set_laser_direction(1)
+	elif sign(laser_origin.position.x) == -1:
+		laser_instance.set_laser_direction(-1)
+	get_parent().add_child(laser_instance)
+	laser_instance.position = laser_origin.global_position
+	$Timer.start(time_between_shots)
 
 func _on_Stats_no_health():
 	queue_free()
 
 func _on_Sprite_animation_finished():
-	direction *= -1
-#	floor_checker.position.x *= -1
-	state = WANDER
+	pass
 
 
 func _on_Sprite_frame_changed():

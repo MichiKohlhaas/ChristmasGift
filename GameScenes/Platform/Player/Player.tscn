@@ -110,7 +110,7 @@ animations = [ {
 height = 30.9591
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 6
+collision_layer = 4100
 script = ExtResource( 54 )
 Laserbolt = ExtResource( 57 )
 
