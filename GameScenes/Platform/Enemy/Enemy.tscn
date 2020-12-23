@@ -14,7 +14,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
-shader_param/active = false
+shader_param/active = true
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -140,8 +140,8 @@ position = Vector2( 2.98276, 8.30267 )
 scale = Vector2( 1.78284, 1.76973 )
 process_parent = true
 physics_process_parent = true
-[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
-[connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
+
+[node name="PatrolTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
@@ -150,6 +150,7 @@ physics_process_parent = true
 [connection signal="timeout" from="Hurtbox/Timer" to="Hurtbox" method="_on_Timer_timeout"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_PatrolTimer_timeout"]
 
 [editable path="Hurtbox"]
 

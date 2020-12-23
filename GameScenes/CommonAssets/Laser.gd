@@ -1,5 +1,5 @@
 extends Area2D
-
+const HIT_EFFECT = preload("res://GameScenes/CommonAssets/Effects/HitEffect.tscn")
 export (int) var speed = 200
 var velocity = Vector2()
 var direction = 1
@@ -26,7 +26,13 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 # warning-ignore:unused_argument
 func _on_Laserbolt_body_entered(body) -> void:
 	queue_free()
+	var hit_effect = HIT_EFFECT.instance()
+	get_parent().add_child(hit_effect)
+	hit_effect.global_position = position
 
 # warning-ignore:unused_argument
 func _on_Laserbolt_area_entered(area):
 	queue_free()
+	var hit_effect = HIT_EFFECT.instance()
+	get_parent().add_child(hit_effect)
+	hit_effect.global_position = position

@@ -8,6 +8,7 @@ enum {
 	CHASE,
 	ATTACK,
 }
+const ENEMYDEATHEFFECT = preload("res://GameScenes/CommonAssets/Effects/Explosion.tscn")
 const SPEED := 30
 const GRAVITY := 10
 
@@ -47,12 +48,15 @@ func _physics_process(delta):
 		flip_positions(false)
 	
 	match state:
+		IDLE:
+			velocity = velocity.move_toward(Vector2.ZERO, 300 * delta)
 		PATROL:
-			patrol()
+			if $PatrolTimer.time_left == 0:
+				patrol_timer()
 		CHASE:
-			move()
+			pass
 		ATTACK:
-			if not isShooting:
+			if not isShooting and pdz.player != null:
 				if(position.x > pdz.player.position.x):
 					# player is on the left of enemy
 					if facing == 1:
@@ -60,17 +64,20 @@ func _physics_process(delta):
 						flip_positions(false)
 				else:
 					# player is on the right of enemy
-					print("Player is on right")
 					if facing == -1:
 						flip_positions(true)
 				attack_state()
 				move_to_player()
+	move()
 
-func patrol() -> void:
-	velocity.y = move_and_slide(velocity, Vector2.UP).y
+
+func patrol_timer() -> void:
+	$PatrolTimer.start(rand_range(1, 6))
+	print("timer start ", $Timer.time_left)
+	
 
 func move() -> void:
-	pass
+	velocity.y = move_and_slide(velocity, Vector2.UP).y
 
 func flip_positions(flip_h: bool) -> void:
 	velocity.x *= self.direction
@@ -94,30 +101,30 @@ func attack_state() ->void:
 	laser_instance.position = laser_origin.global_position
 	$Timer.start(time_between_shots)
 
+func pick_random_state(state_list):
+	state_list.shuffle()
+	return state_list.pop_front()
+
 func _on_Stats_no_health():
 	queue_free()
-
-func _on_Sprite_animation_finished():
-	pass
-
-
-func _on_Sprite_frame_changed():
-	pass # Replace with function body.
-
+	var enemyDeathEffect = ENEMYDEATHEFFECT.instance()
+	get_parent().add_child(enemyDeathEffect)
+	enemyDeathEffect.global_position = global_position
 
 # warning-ignore:unused_argument
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(0.2)
 
-
 func _on_Hurtbox_invincibility_ended():
 	self.animation_player.play("Stop")
-
 
 func _on_Hurtbox_invincibility_started():
 	self.animation_player.play("Start")
 
-
 func _on_Timer_timeout():
 	isShooting = false
+
+func _on_PatrolTimer_timeout():
+	flip_positions(!$Sprite.flip_h)
+	pick_random_state([IDLE, PATROL])

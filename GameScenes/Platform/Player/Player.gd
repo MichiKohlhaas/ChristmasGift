@@ -1,29 +1,34 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-
+const PLAYER_HURT_SOUND = preload("res://GameScenes/Platform/Player/PlayerHurtSound.tscn")
 export (PackedScene) var Laserbolt
-export var ACCELERATION = 500
-export var MAX_SPEED = 200
-export var FRICTION = 500
-export var GRAVITY = 20
-export var JUMP_HEIGHT = -550
+export (int) var ACCELERATION = 500
+export (int) var MAX_SPEED = 200
+export (int) var FRICTION = 500
+export (int) var GRAVITY = 20
+export (int) var JUMP_HEIGHT = -550
 
-var velocity = Vector2.ZERO
-var isJumping = false
-var isCrouching = false
-var isAttacking = false
+var velocity := Vector2.ZERO
+var knockback := Vector2.ZERO
+var isJumping := false
+var isCrouching := false
+var isAttacking := false
 
 onready var camera = $Camera2D
 onready var limitLeft = $LeftLimit
 onready var limitBottom = $BottomLeftLimit
+onready var animation_player = $AnimationPlayer
+onready var hurtbox = $Hurtbox
+onready var stats = $Stats
+
 
 func _ready():
 	camera.limit_left = limitLeft.position.x
 	camera.limit_top = limitLeft.position.y # Might change in the future, depends on the level height
 	camera.limit_bottom = limitBottom.position.y
 
-# TODO: refactor
+# TODO: refactor to state machine
 func _physics_process(delta) -> void:
 	var input_vector := Vector2.ZERO
 	velocity.y += GRAVITY
@@ -74,6 +79,9 @@ func _physics_process(delta) -> void:
 		else:
 			laser_point_origin($LaserOriginRun)
 		isAttacking = true
+	
+	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
+	knockback = move_and_slide(knockback)
 	
 	move(input_vector, delta)
 
@@ -171,3 +179,20 @@ func _on_Sprite_animation_finished():
 
 func _on_Sprite_frame_changed():
 	pass
+
+
+func _on_Hurtbox_invincibility_ended():
+	self.animation_player.play("Stop")
+
+
+func _on_Hurtbox_invincibility_started():
+	self.animation_player.play("Start")
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invincibility(0.2)
+	knockback = Vector2(area.direction, 0) * 120
+	$Sprite.play("hurt")
+	var playerHurtSound = PLAYER_HURT_SOUND.instance()
+	get_tree().current_scene.add_child(playerHurtSound)

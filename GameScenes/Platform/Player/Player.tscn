@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/player/run-shoot/run-shoot-6.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/player/run-shoot/run-shoot-7.png" type="Texture" id=2]
@@ -57,6 +57,15 @@
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/player/crouch/crouch.png" type="Texture" id=55]
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/player/shoot/shoot.png" type="Texture" id=56]
 [ext_resource path="res://GameScenes/CommonAssets/Laserbolt.tscn" type="PackedScene" id=57]
+[ext_resource path="res://GameScenes/CommonAssets/WhiteColourShader.shader" type="Shader" id=58]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/player/hurt/hurt.png" type="Texture" id=59]
+[ext_resource path="res://GameScenes/CommonAssets/Stats.tscn" type="PackedScene" id=60]
+[ext_resource path="res://GameScenes/Platform/Hurtbox.tscn" type="PackedScene" id=61]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 58 )
+shader_param/active = false
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -64,6 +73,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 59 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 56 ), ExtResource( 56 ) ],
 "loop": true,
@@ -107,7 +121,57 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-height = 30.9591
+radius = 7.86633
+height = 30.4051
+
+[sub_resource type="Animation" id=4]
+resource_name = "Start"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 9.94771
+height = 36.0361
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 4100
@@ -115,9 +179,11 @@ script = ExtResource( 54 )
 Laserbolt = ExtResource( 57 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
 position = Vector2( 0.225937, 0 )
 frames = SubResource( 1 )
-animation = "shoot"
+animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -146,3 +212,25 @@ position = Vector2( 35.7259, -3.23057 )
 "LaserPosition",
 ]]
 position = Vector2( 20.8354, 10.899 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 4 )
+anims/Stop = SubResource( 5 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 61 )]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 3.07987, 8.55206 )
+shape = SubResource( 6 )
+
+[node name="Stats" parent="." instance=ExtResource( 60 )]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Hurtbox/Timer" to="Hurtbox" method="_on_Timer_timeout"]
+
+[editable path="Hurtbox"]
