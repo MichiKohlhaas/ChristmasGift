@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GameScenes/Platform/Player/PlayerCamera.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+current = true
+smoothing_enabled = true
+script = ExtResource( 1 )
+
+[node name="TopLeft" type="Position2D" parent="."]
+
+[node name="BottomRight" type="Position2D" parent="."]
+position = Vector2( 640, 360 )

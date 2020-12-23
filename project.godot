@@ -24,6 +24,10 @@ config/name="Christmas Gift"
 run/main_scene="res://GameScenes/Platform/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://GameScenes/Platform/Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=640

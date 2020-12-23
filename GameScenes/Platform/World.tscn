@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=2]
@@ -13,11 +13,8 @@
 [ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-open.png" type="Texture" id=11]
 [ext_resource path="res://GameScenes/Platform/WorldChange.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GameScenes/CommonAssets/WhiteColourShader.shader" type="Shader" id=13]
-
-[sub_resource type="ShaderMaterial" id=2]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/active = false
+[ext_resource path="res://GameScenes/Platform/Player/PlayerCamera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GameScenes/Platform/Player/HealthUI.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -38,16 +35,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Camera2D" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32, 176 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 176 )
 z_index = 1
 
-[node name="Sprite" parent="Player" index="0"]
-material = SubResource( 2 )
-frame = 3
-
-[node name="BottomLeftLimit" parent="Player" index="4"]
-position = Vector2( -35.2741, 192 )
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 229.399, 246.41 )
@@ -74,6 +70,12 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 15 )]
+margin_left = 9.11719
+margin_top = 6.07813
+margin_right = 9.11719
+margin_bottom = 6.07813
 
 [node name="near-buildings-bg" type="TextureRect" parent="."]
 margin_top = 144.0
@@ -106,9 +108,5 @@ texture = ExtResource( 6 )
 [node name="monitor-face-4" type="Sprite" parent="UmweltElements"]
 position = Vector2( 584, 288 )
 texture = ExtResource( 7 )
-[connection signal="animation_finished" from="Player/Sprite" to="Player" method="_on_Sprite_animation_finished"]
-[connection signal="frame_changed" from="Player/Sprite" to="Player" method="_on_Sprite_frame_changed"]
-
-[editable path="Player"]
 
 [editable path="Enemy"]
