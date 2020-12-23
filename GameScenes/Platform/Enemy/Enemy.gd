@@ -73,7 +73,6 @@ func _physics_process(delta):
 
 func patrol_timer() -> void:
 	$PatrolTimer.start(rand_range(1, 6))
-	print("timer start ", $Timer.time_left)
 	
 
 func move() -> void:

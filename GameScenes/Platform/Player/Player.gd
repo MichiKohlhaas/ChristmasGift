@@ -14,19 +14,14 @@ var knockback := Vector2.ZERO
 var isJumping := false
 var isCrouching := false
 var isAttacking := false
+var stats = PlayerStats
 
-onready var camera = $Camera2D
-onready var limitLeft = $LeftLimit
-onready var limitBottom = $BottomLeftLimit
 onready var animation_player = $AnimationPlayer
 onready var hurtbox = $Hurtbox
-onready var stats = $Stats
-
 
 func _ready():
-	camera.limit_left = limitLeft.position.x
-	camera.limit_top = limitLeft.position.y # Might change in the future, depends on the level height
-	camera.limit_bottom = limitBottom.position.y
+	var _v = stats.connect("no_health", self, "queue_free")
+
 
 # TODO: refactor to state machine
 func _physics_process(delta) -> void:
