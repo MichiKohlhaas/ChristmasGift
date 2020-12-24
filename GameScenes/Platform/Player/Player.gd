@@ -23,7 +23,8 @@ onready var hurtbox = $Hurtbox
 onready var hurtbox_collisionshape = $Hurtbox/CollisionShape2D
 
 func _ready():
-	var _v = stats.connect("no_health", self, "queue_free")
+	stats.set_health(stats.max_health)
+	var _v = stats.connect("no_health", self, "death")
 	hurtbox_og_height = hurtbox_collisionshape.shape.height
 	hurtbox_og_posy = hurtbox_collisionshape.position.y
 
@@ -168,7 +169,11 @@ func move(input_vector: Vector2, delta: float) -> void:
 #	print($LaserOriginStanding.position)
 #	print(laserbolt.position)
 #	state = MOVE
-	
+
+func death():
+	queue_free()
+	get_tree().change_scene("res://GameScenes/Platform/World.tscn")
+
 
 func face_direction(input_vector: Vector2) -> void:
 	if input_vector.x < 0:

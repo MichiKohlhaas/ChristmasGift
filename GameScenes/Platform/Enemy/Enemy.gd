@@ -32,6 +32,7 @@ func _ready():
 	
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	# Still seems to be buggy, the enemy moves backwards sometimes :/
 	velocity.y += GRAVITY
 	if pdz.can_see_player():
 		state = ATTACK

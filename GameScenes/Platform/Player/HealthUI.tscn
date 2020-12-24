@@ -26,7 +26,6 @@ margin_right = 300.0
 margin_bottom = 30.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
-max_value = 100.0
 value = 100.0
 percent_visible = false
 __meta__ = {
