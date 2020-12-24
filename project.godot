@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Christmas Gift"
-run/main_scene="res://GameScenes/Platform/World.tscn"
+run/main_scene="res://GameScenes/Platform/TitleMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

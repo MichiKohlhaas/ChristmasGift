@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GameScenes/Platform/MenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GameScenes/Platform/Buttons/GoBack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameScenes/Platform/Buttons/PlaceholderMenu.gd" type="Script" id=3]
+[ext_resource path="res://GameScenes/Platform/menu_font_25.tres" type="DynamicFont" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.054902, 0.027451, 0.027451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 663.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sorry this doesn't work yet"
+
+[node name="MenuButton" parent="." instance=ExtResource( 2 )]
+margin_left = 88.0
+margin_top = 160.0
+margin_right = 388.0
+margin_bottom = 220.0
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 232.0
+margin_right = 292.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 4 )
+text = "Move: ASWD"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 272.0
+margin_right = 182.0
+margin_bottom = 304.0
+custom_fonts/font = ExtResource( 4 )
+text = "Jump: space"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 312.0
+margin_right = 173.0
+margin_bottom = 344.0
+custom_fonts/font = ExtResource( 4 )
+text = "Crouch: Ctrl"
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 232.0
+margin_right = 628.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 4 )
+text = "Shoot: F or Left Mouse Button"
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 272.0
+margin_right = 400.0
+margin_bottom = 304.0
+custom_fonts/font = ExtResource( 4 )
+text = "More to cum"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 72.0
+margin_top = 96.0
+margin_right = 112.0
+margin_bottom = 110.0
+custom_fonts/font = ExtResource( 4 )
+text = "Story: TBD"
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

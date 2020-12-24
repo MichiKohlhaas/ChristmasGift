@@ -29,7 +29,7 @@ position = Vector2( 16, 320 )
 
 [node name="Sprite" parent="Player" index="0"]
 material = SubResource( 1 )
-frame = 0
+frame = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -40,7 +40,7 @@ target_scene = "res://GameScenes/Platform/World.tscn"
 
 [node name="icon" parent="WorldChange" index="0"]
 animation = "blue"
-frame = 2
+frame = 3
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 

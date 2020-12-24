@@ -172,7 +172,7 @@ func move(input_vector: Vector2, delta: float) -> void:
 
 func death():
 	queue_free()
-	get_tree().change_scene("res://GameScenes/Platform/World.tscn")
+	get_tree().change_scene("res://GameScenes/Platform/TitleMenu.tscn")
 
 
 func face_direction(input_vector: Vector2) -> void:

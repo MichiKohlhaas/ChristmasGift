@@ -11,12 +11,12 @@
 [ext_resource path="res://GameScenes/CommonAssets/Laserbolt.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GameScenes/CommonAssets/PlayerDetectionZone.tscn" type="PackedScene" id=10]
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = true
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": false,
@@ -29,7 +29,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=3]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 17.0938
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 35.2534
 height = 610.566
 
@@ -81,9 +81,9 @@ Laserbolt = ExtResource( 9 )
 time_between_shots = 0.8
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = SubResource( 9 )
+material = SubResource( 1 )
 position = Vector2( 0.225937, 0 )
-frames = SubResource( 10 )
+frames = SubResource( 2 )
 animation = "drone"
 playing = true
 
@@ -92,7 +92,7 @@ position = Vector2( -22.3837, 8.30267 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.98276, 16.3851 )
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -133,7 +133,7 @@ collision_mask = 4
 modulate = Color( 1, 1, 1, 0.396078 )
 position = Vector2( 2.98276, 0 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 2.98276, 8.30267 )

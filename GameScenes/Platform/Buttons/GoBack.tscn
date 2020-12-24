@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GameScenes/Platform/MenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GameScenes/Platform/Buttons/MenuButton.gd" type="Script" id=2]
+
+[node name="MenuButton" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 300, 60 )
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+target_scene = "res://GameScenes/Platform/TitleMenu.tscn"
+
+[node name="Label" type="Label" parent="."]
+margin_right = 278.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.0156863, 0.188235, 0.435294, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 5
+text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
