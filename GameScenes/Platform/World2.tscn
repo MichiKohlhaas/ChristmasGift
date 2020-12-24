@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GameScenes/CommonAssets/WhiteColourShader.shader" type="Shader" id=5]
 [ext_resource path="res://GameScenes/Platform/Player/PlayerCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GameScenes/Platform/Player/HealthUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GameScenes/CommonAssets/Grabable.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -29,7 +30,6 @@ position = Vector2( 16, 320 )
 
 [node name="Sprite" parent="Player" index="0"]
 material = SubResource( 1 )
-frame = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -40,7 +40,7 @@ target_scene = "res://GameScenes/Platform/World.tscn"
 
 [node name="icon" parent="WorldChange" index="0"]
 animation = "blue"
-frame = 3
+frame = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
@@ -50,6 +50,11 @@ position = Vector2( 16, 320 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="Node2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 288, 320 )
+collision_layer = 5
+heal_amount = 10
 
 [editable path="Player"]
 
