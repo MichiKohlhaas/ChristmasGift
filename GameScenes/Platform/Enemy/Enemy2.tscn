@@ -1,0 +1,129 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://GameScenes/CommonAssets/Stats.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameScenes/CommonAssets/PlayerDetectionZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-1.png" type="Texture" id=3]
+[ext_resource path="res://GameScenes/Platform/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GameScenes/Platform/Enemy/Enemy2.gd" type="Script" id=5]
+[ext_resource path="res://GameScenes/CommonAssets/WhiteColourShader.shader" type="Shader" id=6]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-2.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-5.png" type="Texture" id=8]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-3.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-4.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/SPRITES/misc/turret/turret-6.png" type="Texture" id=11]
+[ext_resource path="res://GameScenes/CommonAssets/Laserbolt.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 6 )
+shader_param/active = false
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "rotate",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.40763, 11.7554 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0591
+height = 559.332
+
+[sub_resource type="Animation" id=4]
+resource_name = "Start"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="TurretEnemy" type="Node2D"]
+script = ExtResource( 5 )
+Laserbolt = ExtResource( 12 )
+time_between_shots = 0.6
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 0, -0.159834 )
+scale = Vector2( 1, 1.0139 )
+frames = SubResource( 6 )
+animation = "idle"
+
+[node name="LaserOrigin" type="Position2D" parent="."]
+position = Vector2( -16.2751, -8.14482 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Stats" parent="." instance=ExtResource( 1 )]
+max_health = 50
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 2 )]
+collision_mask = 4096
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0.372843, -0.179664 )
+scale = Vector2( 1.27963, 1.1671 )
+process_parent = true
+physics_process_parent = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 4 )
+anims/Stop = SubResource( 5 )
+
+[node name="ThotPatrolTimer" type="Timer" parent="."]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Hurtbox/Timer" to="Hurtbox" method="_on_Timer_timeout"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ThotPatrolTimer" to="." method="_on_ThotPatrolTimer_timeout"]
+
+[editable path="Hurtbox"]
+
+[editable path="PlayerDetectionZone"]
