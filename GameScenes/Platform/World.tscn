@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=2]
@@ -15,11 +15,115 @@
 [ext_resource path="res://GameScenes/CommonAssets/WhiteColourShader.shader" type="Shader" id=13]
 [ext_resource path="res://GameScenes/Platform/Player/PlayerCamera.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GameScenes/Platform/Player/HealthUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-neon/banner-neon-1.png" type="Texture" id=16]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll/banner-scroll-3.png" type="Texture" id=17]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-big/banner-big-4.png" type="Texture" id=18]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-small.png" type="Texture" id=19]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-sushi/banner-sushi-2.png" type="Texture" id=20]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-side/banner-side-3.png" type="Texture" id=21]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/hotel-sign.png" type="Texture" id=22]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-80.png" type="Texture" id=23]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-82.png" type="Texture" id=24]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/control-box-1.png" type="Texture" id=25]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-76.png" type="Texture" id=26]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/monitorface/monitor-face-3.png" type="Texture" id=27]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-77.png" type="Texture" id=28]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/control-box-2.png" type="Texture" id=29]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/monitorface/monitor-face-2.png" type="Texture" id=30]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-79.png" type="Texture" id=31]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-78.png" type="Texture" id=32]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-81.png" type="Texture" id=33]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/monitorface/monitor-face-1.png" type="Texture" id=34]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-12.png" type="Texture" id=35]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-21.png" type="Texture" id=36]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-7.png" type="Texture" id=37]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-16.png" type="Texture" id=38]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-25.png" type="Texture" id=39]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-26.png" type="Texture" id=40]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-9.png" type="Texture" id=41]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-10.png" type="Texture" id=42]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-23.png" type="Texture" id=43]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-2.png" type="Texture" id=44]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-6.png" type="Texture" id=45]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-8.png" type="Texture" id=46]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-13.png" type="Texture" id=47]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-14.png" type="Texture" id=48]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-18.png" type="Texture" id=49]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-22.png" type="Texture" id=50]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-24.png" type="Texture" id=51]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-5.png" type="Texture" id=52]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-3.png" type="Texture" id=53]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-1.png" type="Texture" id=54]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-15.png" type="Texture" id=55]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-17.png" type="Texture" id=56]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-19.png" type="Texture" id=57]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-20.png" type="Texture" id=58]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-4.png" type="Texture" id=59]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-11.png" type="Texture" id=60]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-52.png" type="Texture" id=61]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-56.png" type="Texture" id=62]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-28.png" type="Texture" id=63]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-31.png" type="Texture" id=64]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-57.png" type="Texture" id=65]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-47.png" type="Texture" id=66]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-44.png" type="Texture" id=67]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-58.png" type="Texture" id=68]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-29.png" type="Texture" id=69]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-32.png" type="Texture" id=70]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-35.png" type="Texture" id=71]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-48.png" type="Texture" id=72]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-50.png" type="Texture" id=73]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-30.png" type="Texture" id=74]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-36.png" type="Texture" id=75]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-33.png" type="Texture" id=76]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-37.png" type="Texture" id=77]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-40.png" type="Texture" id=78]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-34.png" type="Texture" id=79]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-38.png" type="Texture" id=80]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-42.png" type="Texture" id=81]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-39.png" type="Texture" id=82]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-45.png" type="Texture" id=83]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-27.png" type="Texture" id=84]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-49.png" type="Texture" id=85]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-53.png" type="Texture" id=86]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-54.png" type="Texture" id=87]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-55.png" type="Texture" id=88]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-46.png" type="Texture" id=89]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-51.png" type="Texture" id=90]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-41.png" type="Texture" id=91]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-43.png" type="Texture" id=92]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-67.png" type="Texture" id=93]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-61.png" type="Texture" id=94]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-59.png" type="Texture" id=95]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-66.png" type="Texture" id=96]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-68.png" type="Texture" id=97]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-70.png" type="Texture" id=98]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-74.png" type="Texture" id=99]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-73.png" type="Texture" id=100]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-60.png" type="Texture" id=101]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-65.png" type="Texture" id=102]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-69.png" type="Texture" id=103]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-71.png" type="Texture" id=104]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-72.png" type="Texture" id=105]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-75.png" type="Texture" id=106]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-62.png" type="Texture" id=107]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-63.png" type="Texture" id=108]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/banner-scroll-2/frites-scroll-64.png" type="Texture" id=109]
+[ext_resource path="res://Textures/Platformer_Assets/warped city files/ENVIRONMENT/props/brussels-sign.png" type="Texture" id=110]
+[ext_resource path="res://GameScenes/Platform/Enemy/Enemy2.tscn" type="PackedScene" id=111]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
 shader_param/active = false
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 54 ), ExtResource( 44 ), ExtResource( 53 ), ExtResource( 59 ), ExtResource( 52 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 60 ), ExtResource( 35 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 55 ), ExtResource( 38 ), ExtResource( 56 ), ExtResource( 49 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 36 ), ExtResource( 50 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 84 ), ExtResource( 63 ), ExtResource( 69 ), ExtResource( 74 ), ExtResource( 64 ), ExtResource( 70 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 71 ), ExtResource( 75 ), ExtResource( 77 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 78 ), ExtResource( 91 ), ExtResource( 81 ), ExtResource( 92 ), ExtResource( 67 ), ExtResource( 83 ), ExtResource( 89 ), ExtResource( 66 ), ExtResource( 72 ), ExtResource( 85 ), ExtResource( 73 ), ExtResource( 90 ), ExtResource( 61 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 62 ), ExtResource( 65 ), ExtResource( 68 ), ExtResource( 95 ), ExtResource( 101 ), ExtResource( 94 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 102 ), ExtResource( 96 ), ExtResource( 93 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 98 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 100 ), ExtResource( 99 ), ExtResource( 106 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 33 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "scroll",
+"speed": 5.0
+} ]
 
 [node name="World" type="Node"]
 
@@ -30,7 +134,7 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8196
 collision_mask = 4
 format = 1
-tile_data = PoolIntArray( 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 917503, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 983039, 0, 0, 1048575, 0, 0, 1114111, 0, 0, 1179647, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1245183, 0, 0, 1310719, 0, 0, 1376255, 0, 0, 1441791, 0, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1441837, 0, 0, 1441838, 0, 0, 1441839, 0, 0, 1441840, 0, 0, 1441841, 0, 0, 1441842, 0, 0, 1441843, 0, 0, 1441844, 0, 0, 1441845, 0, 0, 1441846, 0, 0, 1441847, 0, 0, 1441848, 0, 0, 1441849, 0, 0, 1441850, 0, 0, 1441851, 0, 0, 1441852, 0, 0, 1441853, 0, 0, 1441854, 0, 0, 1441855, 0, 0, 1441856, 0, 0, 1441857, 0, 0, 1441858, 0, 0, 1441859, 0, 0, 1441860, 0, 0, 1441861, 0, 0, 1441862, 0, 0, 1441863, 0, 0, 1441864, 0, 0, 1441865, 0, 0, 1441866, 0, 0, 1441867, 0, 0, 1441868, 0, 0, 1441869, 0, 0, 1441870, 0, 0, 1441871, 0, 0, 1441872, 0, 0, 1441873, 0, 0, 1441874, 0, 0, 1441875, 0, 0, 1441876, 0, 0, 1441877, 0, 0, 1441878, 0, 0, 1441879, 0, 0, 1441880, 0, 0, 1441881, 0, 0, 1441882, 0, 0, 1441883, 0, 0, 1441884, 0, 0, 1441885, 0, 0, 1441886, 0, 0, 1441887, 0, 0, 1441888, 0, 0, 1441889, 0, 0, 1441890, 0, 0, 1441891, 0, 0, 1441892, 0, 0, 1441893, 0, 0, 1441894, 0, 0, 1441895, 0, 0, 1441896, 0, 0, 1441897, 0, 0, 1441898, 0, 0, 1441899, 0, 0, 1441900, 0, 0, 1441901, 0, 0, 1441902, 0, 0, 1441903, 0, 0, 1441904, 0, 0, 1441905, 0, 0, 1441906, 0, 0, 1441907, 0, 0, 1441908, 0, 0, 1441909, 0, 0, 1441910, 0, 0, 1441911, 0, 0, 1441912, 0, 0, 1441913, 0, 0, 1441914, 0, 0, 1441915, 0, 0, 1441916, 0, 0, 1441917, 0, 0, 1441918, 0, 0, 1441919, 0, 0, 1441920, 0, 0, 1441921, 0, 0, 1441922, 0, 0, 1441923, 0, 0, 1441924, 0, 0, 1441925, 0, 0, 1441926, 0, 0, 1441927, 0, 0, 1441928, 0, 0, 1441929, 0, 0, 1441930, 0, 0, 1441931, 0, 0, 1441932, 0, 0, 1441933, 0, 0, 1441934, 0, 0, 1441935, 0, 0, 1441936, 0, 0, 1441937, 0, 0, 1441938, 0, 0, 1441939, 0, 0, 1441940, 0, 0, 1441941, 0, 0, 1441942, 0, 0, 1441943, 0, 0, 1441944, 0, 0, 1441945, 0, 0, 1441946, 0, 0, 1441947, 0, 0, 1441948, 0, 0, 1441949, 0, 0, 1441950, 0, 0, 1441951, 0, 0, 1441952, 0, 0, 1441953, 0, 0, 1441954, 0, 0, 1441955, 0, 0, 1441956, 0, 0, 1441957, 0, 0, 1441958, 0, 0, 1441959, 0, 0, 1441960, 0, 0, 1441961, 0, 0, 1441962, 0, 0, 1441963, 0, 0, 1441964, 0, 0, 1441965, 0, 0, 1441966, 0, 0, 1441967, 0, 0, 1441968, 0, 0, 1441969, 0, 0, 1441970, 0, 0, 1441971, 0, 0, 1441972, 0, 0, 1441973, 0, 0, 1441974, 0, 0, 1441975, 0, 0, 1441976, 0, 0, 1441977, 0, 0, 1441978, 0, 0, 1441979, 0, 0, 1441980, 0, 0, 1441981, 0, 0, 1441982, 0, 0, 1441983, 0, 0, 1441984, 0, 0, 1441985, 0, 0, 1441986, 0, 0, 1441987, 0, 0, 1441988, 0, 0, 1441989, 0, 0, 1441990, 0, 0, 1441991, 0, 0, 1441992, 0, 0, 1441993, 0, 0, 1441994, 0, 0, 1441995, 0, 0, 1441996, 0, 0, 1441997, 0, 0, 1441998, 0, 0, 1441999, 0, 0, 1442000, 0, 0, 1442001, 0, 0, 1442002, 0, 0, 1442003, 0, 0, 1442004, 0, 0, 1442005, 0, 0, 1442006, 0, 0, 1442007, 0, 0, 1442008, 0, 0, 1442009, 0, 0, 1442010, 0, 0, 1442011, 0, 0, 1442012, 0, 0, 1442013, 0, 0, 1442014, 0, 0, 1442015, 0, 0, 1442016, 0, 0, 1442017, 0, 0, 1442018, 0, 0, 1442019, 0, 0, 1442020, 0, 0, 1442021, 0, 0, 1442022, 0, 0, 1442023, 0, 0, 1442024, 0, 0, 1442025, 0, 0, 1442026, 0, 0, 1442027, 0, 0, 1442028, 0, 0, 1442029, 0, 0, 1442030, 0, 0, 1442031, 0, 0, 1442032, 0, 0, 1442033, 0, 0, 1442034, 0, 0, 1442035, 0, 0, 1442036, 0, 0, 1442037, 0, 0, 1442038, 0, 0, 1442039, 0, 0, 1442040, 0, 0, 1442041, 0, 0, 1442042, 0, 0, 1442043, 0, 0, 1442044, 0, 0, 1442045, 0, 0, 1442046, 0, 0, 1442047, 0, 0, 1442048, 0, 0, 1442049, 0, 0, 1442050, 0, 0, 1442051, 0, 0, 1442052, 0, 0, 1442053, 0, 0, 1442054, 0, 0, 1442055, 0, 0, 1442056, 0, 0, 1442057, 0, 0, 1442058, 0, 0, 1442059, 0, 0, 1442060, 0, 0, 1442061, 0, 0, 1442062, 0, 0, 1442063, 0, 0, 1442064, 0, 0, 1442065, 0, 0, 1442066, 0, 0, 1442067, 0, 0, 1442068, 0, 0, 1442069, 0, 0, 1442070, 0, 0, 1442071, 0, 0, 1442072, 0, 0, 1442073, 0, 0, 1442074, 0, 0, 1442075, 0, 0, 1442076, 0, 0, 1442077, 0, 0, 1442078, 0, 0, 1442079, 0, 0, 1442080, 0, 0, 1442081, 0, 0, 1442082, 0, 0, 1442083, 0, 0, 1442084, 0, 0, 1442085, 0, 0, 1442086, 0, 0, 1442087, 0, 0, 1442088, 0, 0, 1442089, 0, 0, 1442090, 0, 0, 1442091, 0, 0, 1442092, 0, 0, 1442093, 0, 0, 1442094, 0, 0, 1442095, 0, 0, 1442096, 0, 0, 1442097, 0, 0, 1442098, 0, 0, 1442099, 0, 0, 1442100, 0, 0, 1442101, 0, 0, 1442102, 0, 0, 1442103, 0, 0, 1442104, 0, 0, 1442105, 0, 0, 1442106, 0, 0, 1442107, 0, 0, 1442108, 0, 0, 1442109, 0, 0, 1442110, 0, 0, 1442111, 0, 0, 1442112, 0, 0, 1442113, 0, 0, 1442114, 0, 0, 1442115, 0, 0, 1442116, 0, 0, 1442117, 0, 0, 1442118, 0, 0, 1442119, 0, 0, 1442120, 0, 0, 1442121, 0, 0, 1442122, 0, 0, 1442123, 0, 0, 1442124, 0, 0, 1442125, 0, 0, 1442126, 0, 0, 1442127, 0, 0, 1442128, 0, 0, 1442129, 0, 0, 1442130, 0, 0, 1442131, 0, 0, 1442132, 0, 0, 1442133, 0, 0, 1442134, 0, 0, 1442135, 0, 0 )
+tile_data = PoolIntArray( 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 917503, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852074, 0, 0, 852075, 0, 0, 852076, 0, 0, 852077, 0, 0, 852078, 0, 0, 852079, 0, 0, 852080, 0, 0, 983039, 0, 0, 1048575, 0, 0, 1114111, 0, 0, 1179647, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114234, 0, 0, 1114235, 0, 0, 1114236, 0, 0, 1114237, 0, 0, 1114238, 0, 0, 1114239, 0, 0, 1114240, 0, 0, 1245183, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1179696, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179742, 0, 0, 1179743, 0, 0, 1179744, 0, 0, 1179745, 0, 0, 1179746, 0, 0, 1179747, 0, 0, 1310719, 0, 0, 1376255, 0, 0, 1441791, 0, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1441837, 0, 0, 1441838, 0, 0, 1441839, 0, 0, 1441840, 0, 0, 1441841, 0, 0, 1441842, 0, 0, 1441843, 0, 0, 1441844, 0, 0, 1441845, 0, 0, 1441846, 0, 0, 1441847, 0, 0, 1441848, 0, 0, 1441849, 0, 0, 1441850, 0, 0, 1441851, 0, 0, 1441852, 0, 0, 1441853, 0, 0, 1441854, 0, 0, 1441855, 0, 0, 1441856, 0, 0, 1441857, 0, 0, 1441858, 0, 0, 1441859, 0, 0, 1441860, 0, 0, 1441861, 0, 0, 1441862, 0, 0, 1441863, 0, 0, 1441864, 0, 0, 1441865, 0, 0, 1441866, 0, 0, 1441867, 0, 0, 1441868, 0, 0, 1441869, 0, 0, 1441870, 0, 0, 1441871, 0, 0, 1441872, 0, 0, 1441873, 0, 0, 1441874, 0, 0, 1441875, 0, 0, 1441876, 0, 0, 1441877, 0, 0, 1441878, 0, 0, 1441879, 0, 0, 1441880, 0, 0, 1441881, 0, 0, 1441882, 0, 0, 1441883, 0, 0, 1441884, 0, 0, 1441885, 0, 0, 1441886, 0, 0, 1441887, 0, 0, 1441888, 0, 0, 1441889, 0, 0, 1441890, 0, 0, 1441891, 0, 0, 1441892, 0, 0, 1441893, 0, 0, 1441894, 0, 0, 1441895, 0, 0, 1441896, 0, 0, 1441897, 0, 0, 1441898, 0, 0, 1441899, 0, 0, 1441900, 0, 0, 1441901, 0, 0, 1441902, 0, 0, 1441903, 0, 0, 1441904, 0, 0, 1441905, 0, 0, 1441906, 0, 0, 1441907, 0, 0, 1441908, 0, 0, 1441909, 0, 0, 1441910, 0, 0, 1441911, 0, 0, 1441912, 0, 0, 1441913, 0, 0, 1441914, 0, 0, 1441915, 0, 0, 1441916, 0, 0, 1441917, 0, 0, 1441918, 0, 0, 1441919, 0, 0, 1441920, 0, 0, 1441921, 0, 0, 1441922, 0, 0, 1441923, 0, 0, 1441924, 0, 0, 1441925, 0, 0, 1441926, 0, 0, 1441927, 0, 0, 1441928, 0, 0, 1441929, 0, 0, 1441930, 0, 0, 1441931, 0, 0, 1441932, 0, 0, 1441933, 0, 0, 1441934, 0, 0, 1441935, 0, 0, 1441936, 0, 0, 1441937, 0, 0, 1441938, 0, 0, 1441939, 0, 0, 1441940, 0, 0, 1441941, 0, 0, 1441942, 0, 0, 1441943, 0, 0, 1441944, 0, 0, 1441945, 0, 0, 1441946, 0, 0, 1441947, 0, 0, 1441948, 0, 0, 1441949, 0, 0, 1441950, 0, 0, 1441951, 0, 0, 1441952, 0, 0, 1441953, 0, 0, 1441954, 0, 0, 1441955, 0, 0, 1441956, 0, 0, 1441957, 0, 0, 1441958, 0, 0, 1441959, 0, 0, 1441960, 0, 0, 1441961, 0, 0, 1441962, 0, 0, 1441963, 0, 0, 1441964, 0, 0, 1441965, 0, 0, 1441966, 0, 0, 1441967, 0, 0, 1441968, 0, 0, 1441969, 0, 0, 1441970, 0, 0, 1441971, 0, 0, 1441972, 0, 0, 1441973, 0, 0, 1441974, 0, 0, 1441975, 0, 0, 1441976, 0, 0, 1441977, 0, 0, 1441978, 0, 0, 1441979, 0, 0, 1441980, 0, 0, 1441981, 0, 0, 1441982, 0, 0, 1441983, 0, 0, 1441984, 0, 0, 1441985, 0, 0, 1441986, 0, 0, 1441987, 0, 0, 1441988, 0, 0, 1441989, 0, 0, 1441990, 0, 0, 1441991, 0, 0, 1441992, 0, 0, 1441993, 0, 0, 1441994, 0, 0, 1441995, 0, 0, 1441996, 0, 0, 1441997, 0, 0, 1441998, 0, 0, 1441999, 0, 0, 1442000, 0, 0, 1442001, 0, 0, 1442002, 0, 0, 1442003, 0, 0, 1442004, 0, 0, 1442005, 0, 0, 1442006, 0, 0, 1442007, 0, 0, 1442008, 0, 0, 1442009, 0, 0, 1442010, 0, 0, 1442011, 0, 0, 1442012, 0, 0, 1442013, 0, 0, 1442014, 0, 0, 1442015, 0, 0, 1442016, 0, 0, 1442017, 0, 0, 1442018, 0, 0, 1442019, 0, 0, 1442020, 0, 0, 1442021, 0, 0, 1442022, 0, 0, 1442023, 0, 0, 1442024, 0, 0, 1442025, 0, 0, 1442026, 0, 0, 1442027, 0, 0, 1442028, 0, 0, 1442029, 0, 0, 1442030, 0, 0, 1442031, 0, 0, 1442032, 0, 0, 1442033, 0, 0, 1442034, 0, 0, 1442035, 0, 0, 1442036, 0, 0, 1442037, 0, 0, 1442038, 0, 0, 1442039, 0, 0, 1442040, 0, 0, 1442041, 0, 0, 1442042, 0, 0, 1442043, 0, 0, 1442044, 0, 0, 1442045, 0, 0, 1442046, 0, 0, 1442047, 0, 0, 1442048, 0, 0, 1442049, 0, 0, 1442050, 0, 0, 1442051, 0, 0, 1442052, 0, 0, 1442053, 0, 0, 1442054, 0, 0, 1442055, 0, 0, 1442056, 0, 0, 1442057, 0, 0, 1442058, 0, 0, 1442059, 0, 0, 1442060, 0, 0, 1442061, 0, 0, 1442062, 0, 0, 1442063, 0, 0, 1442064, 0, 0, 1442065, 0, 0, 1442066, 0, 0, 1442067, 0, 0, 1442068, 0, 0, 1442069, 0, 0, 1442070, 0, 0, 1442071, 0, 0, 1442072, 0, 0, 1442073, 0, 0, 1442074, 0, 0, 1442075, 0, 0, 1442076, 0, 0, 1442077, 0, 0, 1442078, 0, 0, 1442079, 0, 0, 1442080, 0, 0, 1442081, 0, 0, 1442082, 0, 0, 1442083, 0, 0, 1442084, 0, 0, 1442085, 0, 0, 1442086, 0, 0, 1442087, 0, 0, 1442088, 0, 0, 1442089, 0, 0, 1442090, 0, 0, 1442091, 0, 0, 1442092, 0, 0, 1442093, 0, 0, 1442094, 0, 0, 1442095, 0, 0, 1442096, 0, 0, 1442097, 0, 0, 1442098, 0, 0, 1442099, 0, 0, 1442100, 0, 0, 1442101, 0, 0, 1442102, 0, 0, 1442103, 0, 0, 1442104, 0, 0, 1442105, 0, 0, 1442106, 0, 0, 1442107, 0, 0, 1442108, 0, 0, 1442109, 0, 0, 1442110, 0, 0, 1442111, 0, 0, 1442112, 0, 0, 1442113, 0, 0, 1442114, 0, 0, 1442115, 0, 0, 1442116, 0, 0, 1442117, 0, 0, 1442118, 0, 0, 1442119, 0, 0, 1442120, 0, 0, 1442121, 0, 0, 1442122, 0, 0, 1442123, 0, 0, 1442124, 0, 0, 1442125, 0, 0, 1442126, 0, 0, 1442127, 0, 0, 1442128, 0, 0, 1442129, 0, 0, 1442130, 0, 0, 1442131, 0, 0, 1442132, 0, 0, 1442133, 0, 0, 1442134, 0, 0, 1442135, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -46,7 +150,7 @@ z_index = 1
 remote_path = NodePath("../../Camera2D")
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 229.399, 246.41 )
+position = Vector2( 334.932, 245.133 )
 
 [node name="Sprite" parent="Enemy" index="0"]
 material = SubResource( 1 )
@@ -57,8 +161,12 @@ position = Vector2( 1800, 318 )
 [node name="Enemy3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3104, 322 )
 
+[node name="TurretEnemy" parent="." instance=ExtResource( 111 )]
+position = Vector2( 1015.67, 341.084 )
+z_index = 2
+
 [node name="WorldChange" parent="." instance=ExtResource( 12 )]
-position = Vector2( 440, 176 )
+position = Vector2( 5439.97, 316.071 )
 z_index = 1
 target_scene = "res://GameScenes/Platform/World2.tscn"
 
@@ -87,6 +195,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="monitor-face-3" type="Sprite" parent="near-buildings-bg"]
+position = Vector2( 5068.13, 146.227 )
+scale = Vector2( 0.824008, 0.794643 )
+texture = ExtResource( 27 )
+
+[node name="antenna" type="Sprite" parent="near-buildings-bg"]
+position = Vector2( 1884.8, 160.554 )
+texture = ExtResource( 9 )
+
+[node name="banner-arrow" type="Sprite" parent="near-buildings-bg"]
+position = Vector2( 5013.75, 128.056 )
+texture = ExtResource( 10 )
+
+[node name="control-box-3" type="Sprite" parent="near-buildings-bg"]
+position = Vector2( 5124.97, 193.709 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="antenna2" type="Sprite" parent="near-buildings-bg"]
+position = Vector2( 5125.39, 163.212 )
+z_index = -1
+texture = ExtResource( 9 )
+
 [node name="UmweltElements" type="Node" parent="."]
 
 [node name="antenna" type="Sprite" parent="UmweltElements"]
@@ -108,5 +239,88 @@ texture = ExtResource( 6 )
 [node name="monitor-face-4" type="Sprite" parent="UmweltElements"]
 position = Vector2( 584, 288 )
 texture = ExtResource( 7 )
+
+[node name="banner-small" type="Sprite" parent="UmweltElements"]
+position = Vector2( 686.864, 289.611 )
+texture = ExtResource( 19 )
+
+[node name="hotel-sign" type="Sprite" parent="UmweltElements"]
+position = Vector2( 1447.93, 176.246 )
+z_index = -1
+texture = ExtResource( 22 )
+
+[node name="banner-sushi-2" type="Sprite" parent="UmweltElements"]
+position = Vector2( 1369.67, 308.332 )
+texture = ExtResource( 20 )
+
+[node name="banner-side-3" type="Sprite" parent="UmweltElements"]
+position = Vector2( 2052.47, 289.091 )
+texture = ExtResource( 21 )
+
+[node name="banner-neon-1" type="Sprite" parent="UmweltElements"]
+position = Vector2( 2226.94, 236.569 )
+texture = ExtResource( 16 )
+
+[node name="banner-scroll-3" type="Sprite" parent="UmweltElements"]
+position = Vector2( 2540.51, 290.131 )
+texture = ExtResource( 17 )
+
+[node name="banner-big-4" type="Sprite" parent="UmweltElements"]
+position = Vector2( 2720.44, 258.93 )
+texture = ExtResource( 18 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UmweltElements"]
+position = Vector2( 1732.91, 234.776 )
+frames = SubResource( 2 )
+animation = "scroll"
+frame = 41
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="UmweltElements"]
+position = Vector2( 4024.99, 297.738 )
+frames = SubResource( 2 )
+animation = "scroll"
+frame = 40
+playing = true
+
+[node name="monitor-face-5" type="Sprite" parent="UmweltElements"]
+position = Vector2( 3605.88, 196.568 )
+scale = Vector2( 0.840204, 0.71001 )
+texture = ExtResource( 7 )
+
+[node name="monitor-face-2" type="Sprite" parent="UmweltElements"]
+position = Vector2( 4572.49, 291.028 )
+texture = ExtResource( 30 )
+
+[node name="monitor-face-1" type="Sprite" parent="UmweltElements"]
+position = Vector2( 4592.24, 197.043 )
+scale = Vector2( 0.940666, 0.809724 )
+texture = ExtResource( 34 )
+
+[node name="banner-small2" type="Sprite" parent="UmweltElements"]
+position = Vector2( 4517.34, 311.024 )
+texture = ExtResource( 19 )
+
+[node name="banner-open2" type="Sprite" parent="UmweltElements"]
+position = Vector2( 4353.42, 290.27 )
+texture = ExtResource( 11 )
+
+[node name="control-box-2" type="Sprite" parent="UmweltElements"]
+position = Vector2( 673.567, 339.613 )
+texture = ExtResource( 29 )
+
+[node name="control-box-1" type="Sprite" parent="UmweltElements"]
+position = Vector2( 1369.14, 208.111 )
+texture = ExtResource( 25 )
+
+[node name="monitor-face-3" type="Sprite" parent="UmweltElements"]
+position = Vector2( 3589.02, 290.081 )
+scale = Vector2( 0.822484, 0.782504 )
+texture = ExtResource( 30 )
+
+[node name="brussels-sign" type="Sprite" parent="UmweltElements"]
+position = Vector2( 491.275, 180.961 )
+z_index = -1
+texture = ExtResource( 110 )
 
 [editable path="Enemy"]

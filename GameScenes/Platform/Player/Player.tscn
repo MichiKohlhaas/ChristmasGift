@@ -120,8 +120,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.86633
-height = 30.4051
+radius = 7.94361
+height = 12.6564
 
 [sub_resource type="Animation" id=4]
 resource_name = "Start"
@@ -182,11 +182,11 @@ material = SubResource( 3 )
 position = Vector2( 0.225937, 0 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.07987, 8.55206 )
+position = Vector2( 3.07987, 21.4675 )
 shape = SubResource( 2 )
 
 [node name="LaserOriginStanding" type="Position2D" parent="." groups=[

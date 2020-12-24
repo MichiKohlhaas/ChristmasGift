@@ -12,7 +12,6 @@ const ENEMYDEATHEFFECT = preload("res://GameScenes/CommonAssets/Effects/Explosio
 const SPEED := 30
 const GRAVITY := 10
 
-var health := 10
 var direction := -1 # face left
 var facing := -1
 var isShooting := false
@@ -54,6 +53,7 @@ func _physics_process(delta):
 			if $PatrolTimer.time_left == 0:
 				patrol_timer()
 		CHASE:
+			# TODO: Chase enemy
 			pass
 		ATTACK:
 			if not isShooting and pdz.player != null:
@@ -67,7 +67,6 @@ func _physics_process(delta):
 					if facing == -1:
 						flip_positions(true)
 				attack_state()
-				move_to_player()
 	move()
 
 
@@ -83,10 +82,6 @@ func flip_positions(flip_h: bool) -> void:
 	$Sprite.flip_h = flip_h
 	laser_origin.position.x *= self.direction
 	facing *= self.direction
-
-func move_to_player() -> void:
-#	velocity.y = move_and_slide(velocity, Vector2.UP).y
-	pass
 
 func attack_state() ->void:
 	isShooting = true

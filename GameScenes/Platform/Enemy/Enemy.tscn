@@ -11,12 +11,12 @@
 [ext_resource path="res://GameScenes/CommonAssets/Laserbolt.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GameScenes/CommonAssets/PlayerDetectionZone.tscn" type="PackedScene" id=10]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=9]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = true
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": false,
@@ -29,7 +29,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=11]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 17.0938
@@ -81,18 +81,18 @@ Laserbolt = ExtResource( 9 )
 time_between_shots = 0.8
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = SubResource( 1 )
+material = SubResource( 9 )
 position = Vector2( 0.225937, 0 )
-frames = SubResource( 2 )
+frames = SubResource( 10 )
 animation = "drone"
 playing = true
 
 [node name="LaserOrigin" type="Position2D" parent="."]
-position = Vector2( -30.3999, 8.30267 )
+position = Vector2( -22.3837, 8.30267 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.98276, 16.3851 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 visible = false

@@ -14,13 +14,18 @@ var knockback := Vector2.ZERO
 var isJumping := false
 var isCrouching := false
 var isAttacking := false
+var hurtbox_og_height := 0.0 
+var hurtbox_og_posy := 0.0 
 var stats = PlayerStats
 
 onready var animation_player = $AnimationPlayer
 onready var hurtbox = $Hurtbox
+onready var hurtbox_collisionshape = $Hurtbox/CollisionShape2D
 
 func _ready():
 	var _v = stats.connect("no_health", self, "queue_free")
+	hurtbox_og_height = hurtbox_collisionshape.shape.height
+	hurtbox_og_posy = hurtbox_collisionshape.position.y
 
 
 # TODO: refactor to state machine
@@ -61,9 +66,13 @@ func _physics_process(delta) -> void:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_HEIGHT
 		elif Input.is_action_pressed("crouch"):
+			hurtbox_collisionshape.shape.height = 14.871
+			hurtbox_collisionshape.position.y = 17.625
 			$Sprite.play("crouch")
 			isCrouching = true
 		elif Input.is_action_just_released("crouch"):
+			hurtbox_collisionshape.shape.height = hurtbox_og_height
+			hurtbox_collisionshape.position.y = hurtbox_og_posy
 			isCrouching = false
 	
 	if Input.is_action_just_pressed("shoot"):
