@@ -109,10 +109,10 @@ func _on_Stats_no_health():
 	enemyDeathEffect.global_position = global_position
 	
 	randomize()
-	if rand_range(0, 100) <= drop_chance:
-		var drop_item = random_drop.instance()
-		get_parent().add_child(drop_item)
-		drop_item.global_position = global_position
+#	if rand_range(0, 100) <= drop_chance:
+	var drop_item = random_drop.instance()
+	get_parent().call_deferred("add_child", drop_item)
+	drop_item.global_position = global_position
 
 # warning-ignore:unused_argument
 func _on_Hurtbox_area_entered(area):
