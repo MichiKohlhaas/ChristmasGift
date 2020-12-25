@@ -285,14 +285,14 @@ texture = ExtResource( 18 )
 position = Vector2( 1732.91, 234.776 )
 frames = SubResource( 2 )
 animation = "scroll"
-frame = 18
+frame = 10
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="UmweltElements"]
 position = Vector2( 4024.99, 297.738 )
 frames = SubResource( 2 )
 animation = "scroll"
-frame = 17
+frame = 9
 playing = true
 
 [node name="monitor-face-5" type="Sprite" parent="UmweltElements"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GameScenes/Platform/Player/PlayerCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GameScenes/Platform/Player/HealthUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GameScenes/CommonAssets/Grabable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GameScenes/Platform/Enemy/Enemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -30,6 +31,7 @@ position = Vector2( 16, 320 )
 
 [node name="Sprite" parent="Player" index="0"]
 material = SubResource( 1 )
+frame = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -55,6 +57,18 @@ position = Vector2( 16, 320 )
 position = Vector2( 288, 320 )
 collision_layer = 5
 heal_amount = 10
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 592, 224 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 408, 272 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1384, 322 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1064, 316.769 )
 
 [editable path="Player"]
 
