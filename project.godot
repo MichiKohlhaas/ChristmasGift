@@ -22,11 +22,13 @@ _global_script_class_icons={
 
 config/name="Christmas Gift"
 run/main_scene="res://GameScenes/Platform/TitleMenu.tscn"
+config/use_custom_user_dir=true
 config/icon="res://icon.png"
 
 [autoload]
 
 PlayerStats="*res://GameScenes/Platform/Player/PlayerStats.tscn"
+PauseScreen="*res://GameScenes/CommonAssets/PauseScreen.gd"
 
 [display]
 

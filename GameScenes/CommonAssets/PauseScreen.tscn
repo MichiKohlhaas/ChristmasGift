@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GameScenes/CommonAssets/PauseScreen.gd" type="Script" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.317647 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = -10.0
+margin_right = 34.5
+margin_bottom = 10.0
+text = "Continue"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.308
+anchor_right = 0.505
+anchor_bottom = 0.308
+margin_left = -37.7419
+margin_top = -0.10714
+margin_right = 41.058
+margin_bottom = 19.8929
+text = "Full Screen"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

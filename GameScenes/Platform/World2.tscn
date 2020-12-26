@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GameScenes/Platform/BG/GroundFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://GameScenes/Platform/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://GameScenes/Platform/Player/HealthUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GameScenes/CommonAssets/Grabable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GameScenes/Platform/Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GameScenes/CommonAssets/PauseScreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -58,17 +59,13 @@ position = Vector2( 288, 320 )
 collision_layer = 5
 heal_amount = 10
 
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 592, 224 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 408, 272 )
-
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1384, 322 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1064, 316.769 )
+
+[node name="CanvasLayer2" parent="." instance=ExtResource( 10 )]
 
 [editable path="Player"]
 

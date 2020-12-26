@@ -436,7 +436,7 @@ size_flags_vertical = 3
 position = Vector2( 160, 73 )
 frames = SubResource( 1 )
 animation = "run_shoot"
-frame = 6
+frame = 3
 playing = true
 
 [node name="Enemy" type="AnimatedSprite" parent="Menu/CentreRow/CenterContainer"]
@@ -444,7 +444,7 @@ visible = false
 position = Vector2( 160, 169 )
 frames = SubResource( 63 )
 animation = "shadow"
-frame = 16
+frame = 3
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
