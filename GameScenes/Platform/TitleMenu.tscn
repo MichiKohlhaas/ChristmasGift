@@ -417,7 +417,7 @@ target_scene = "res://GameScenes/Platform/World.tscn"
 margin_top = 80.0
 margin_right = 300.0
 margin_bottom = 140.0
-target_scene = "res://GameScenes/Platform/Buttons/OptionsMenu.tscn"
+target_scene = "res://GameScenes/Platform/Continue.tscn"
 
 [node name="OptionsButton" parent="Menu/CentreRow/Buttons" instance=ExtResource( 1 )]
 margin_top = 160.0
@@ -436,7 +436,7 @@ size_flags_vertical = 3
 position = Vector2( 160, 73 )
 frames = SubResource( 1 )
 animation = "run_shoot"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Enemy" type="AnimatedSprite" parent="Menu/CentreRow/CenterContainer"]
@@ -444,7 +444,7 @@ visible = false
 position = Vector2( 160, 169 )
 frames = SubResource( 63 )
 animation = "shadow"
-frame = 3
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
