@@ -47,4 +47,4 @@ All the art is open source.
 	- https://newpixel.itch.io/city-sky
 	
 
-(C) Michael O'Connell 2020
+Copyright © 2020, Michael O'Connell. Released under the (MIT License)[https://github.com/MichiKohlhaas/ChristmasGift/blob/master/LICENSE].
