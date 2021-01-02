@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://GameScenes/GlobalScripts/SaveGame.gd"
+}, {
 "base": "Node",
 "class": "Stats",
 "language": "GDScript",
 "path": "res://GameScenes/CommonAssets/Stats.gd"
 } ]
 _global_script_class_icons={
+"SaveGame": "",
 "Stats": ""
 }
 
@@ -24,11 +30,13 @@ config/name="Christmas Gift"
 run/main_scene="res://GameScenes/Platform/TitleMenu.tscn"
 config/use_custom_user_dir=true
 config/icon="res://icon.png"
+config/version="1.0"
 
 [autoload]
 
 PlayerStats="*res://GameScenes/Platform/Player/PlayerStats.tscn"
 PauseScreen="*res://GameScenes/CommonAssets/PauseScreen.gd"
+GameSave="*res://GameScenes/GlobalScripts/GameSave.gd"
 
 [display]
 

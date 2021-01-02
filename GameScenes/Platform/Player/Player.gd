@@ -181,6 +181,12 @@ func face_direction(input_vector: Vector2) -> void:
 	elif input_vector.x > 0:
 		$Sprite.flip_h = false
 
+func save(save_game: Resource):
+	save_game.data["Level"] = get_parent().filename
+	save_game.data["Position"] = global_position
+	save_game.data["Health"] = stats.health
+	
+
 func _on_Sprite_animation_finished():
 	if $Sprite.animation == "shoot":
 		isAttacking = false

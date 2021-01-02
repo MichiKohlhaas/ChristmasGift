@@ -78,16 +78,6 @@ animations = [ {
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 47 ) ],
-"loop": false,
-"name": "back_jump",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 48 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "climb",
@@ -98,9 +88,24 @@ animations = [ {
 "name": "run_shoot",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 47 ) ],
+"loop": false,
+"name": "back_jump",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 59 ) ],
 "loop": true,
 "name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "shoot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 55 ) ],
@@ -112,11 +117,6 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 16.0
-}, {
-"frames": [ ExtResource( 56 ), ExtResource( 56 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -174,6 +174,7 @@ height = 36.0361
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
+"save",
 ]]
 collision_layer = 4100
 script = ExtResource( 54 )
@@ -184,7 +185,7 @@ material = SubResource( 1 )
 position = Vector2( 0.225937, 0 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
