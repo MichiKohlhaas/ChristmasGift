@@ -90,6 +90,7 @@ func _physics_process(delta) -> void:
 	
 	move(input_vector, delta)
 
+
 func laser_point_origin(origin: Position2D):
 	var laser_instance = Laserbolt.instance()
 	if sign(origin.position.x) == 1:

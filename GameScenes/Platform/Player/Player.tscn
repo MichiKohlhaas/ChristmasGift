@@ -78,25 +78,25 @@ animations = [ {
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 48 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 44 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ) ],
 "loop": true,
-"name": "climb",
-"speed": 6.0
+"name": "run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "run_shoot",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 46 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "back_jump",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 48 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "climb",
+"speed": 6.0
 }, {
 "frames": [ ExtResource( 59 ) ],
 "loop": true,
@@ -121,7 +121,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 7.94361
-height = 12.6564
+height = 23.3862
 
 [sub_resource type="Animation" id=4]
 resource_name = "Start"
@@ -185,11 +185,10 @@ material = SubResource( 1 )
 position = Vector2( 0.225937, 0 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.07987, 21.4675 )
+position = Vector2( 3.07987, 15.7052 )
 shape = SubResource( 3 )
 
 [node name="LaserOriginStanding" type="Position2D" parent="." groups=[
@@ -218,11 +217,12 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 3.07987, 8.55206 )
 shape = SubResource( 6 )
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
-[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
+[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
 [connection signal="timeout" from="Hurtbox/Timer" to="Hurtbox" method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]

@@ -59,4 +59,6 @@ func _on_Enemy_animation_finished():
 	pick_random_enemy_animation()
 
 func _on_Button_pressed(target_scene):
-	get_tree().change_scene(target_scene)
+	var context = get_tree().current_scene.filename
+	SceneChanger.change_scene(target_scene, {"previous_scene": context})
+	
